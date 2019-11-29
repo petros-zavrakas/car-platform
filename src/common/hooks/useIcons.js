@@ -5,7 +5,7 @@ export const useIcons = () => {
     false,
     /\.(png|jpe?g|svg)$/
   );
-  r.keys().map((item, index) => {
+  r.keys().forEach((item, index) => {
     images[
       item
         .split("/")
