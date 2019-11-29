@@ -1,4 +1,5 @@
-import { keyframes } from 'styled-components';
+import { keyframes } from "styled-components";
+import arrow from "../images/arrow-down.svg";
 
 export const Box = () => `
   background-color: #fff;
@@ -15,6 +16,19 @@ export const Form = () => `
   select, input { 
     font-size: .875rem;
     height: 45px; 
+  }
+
+  /* cross-browser styling including reset styles */
+  select{
+    -webkit-appearance: none;
+    -moz-appearance: none;
+    -o-appearance: none;
+    appearance: none;
+    background: none;
+    background-image: url('${arrow}');
+    background-position: right .75rem center;
+    background-repeat: no-repeat;
+    outline: none;
   }
 
   label { 
