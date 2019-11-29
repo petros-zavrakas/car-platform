@@ -29,16 +29,7 @@
     "deploy": "gh-pages -d build"
   },
   "eslintConfig": {
-    "extends": "react-app",
-    "rules": {
-      "quotes": [
-        "error",
-        "double",
-        {
-          "avoidEscape": true
-        }
-      ]
-    }
+    "extends": "react-app"
   },
   "browserslist": {
     "production": [
