@@ -1,7 +1,9 @@
 import styled from "styled-components";
 
 export const Image = styled.img.attrs(props => ({
-  srcSet: props.srcset
+  src: props.src,
+  srcSet: props.srcset,
+  alt: props.alt
 }))`
   width: 100%;
 `;
