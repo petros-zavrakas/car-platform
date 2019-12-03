@@ -2,7 +2,7 @@ import React from "react";
 import { BrowserRouter } from "react-router-dom";
 import { mount } from "enzyme";
 import configureStore from "redux-mock-store";
-import { findByAttribute } from "./common/utils/testUtils";
+import { findByAttribute } from "./utils/testUtils";
 import App from "./App";
 
 describe("App Component", () => {

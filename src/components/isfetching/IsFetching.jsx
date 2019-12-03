@@ -1,6 +1,6 @@
 import React from "react";
 import { Fetching } from "./IsFetching.styles";
-import loader from "../../../assets/images/loader.svg";
+import loader from "../../assets/images/loader.svg";
 
 const IsFetching = () => {
   return (

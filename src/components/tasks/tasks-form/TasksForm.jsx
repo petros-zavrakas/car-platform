@@ -1,15 +1,18 @@
 import React, { useState } from "react";
-import { useForm } from "../../../common/hooks/useForm";
-import Input from "../../../common/components/form/Input";
-import Select from "../../../common/components/form/Select";
-import AlertBox from "../../../common/components/alert-box/AlertBox";
+import { useForm } from "../../../hooks/useForm";
+import Input from "../../../components/form/Input";
+import Select from "../../../components/form/Select";
+import AlertBox from "../../../components/alert-box/AlertBox";
 import Button from "react-bootstrap/Button";
 import { AddTaskForm } from "./TasksForm.styles";
 
 const TasksForm = props => {
   const taskTypeOptions = ["ADD_DOCUMENT", "WASH_CAR", "ADD_PAYMENT_DETAILS"];
 
-  const [fields, setFields, handleChange] = useForm({ taskType: "", comment: "" });
+  const [fields, setFields, handleChange] = useForm({
+    taskType: "",
+    comment: ""
+  });
   const [error, setError] = useState(null);
 
   const handleSubmit = event => {

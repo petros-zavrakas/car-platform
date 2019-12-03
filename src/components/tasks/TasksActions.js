@@ -1,4 +1,4 @@
-import { createHttpAction } from "../../common/redux/actions/commonActions";
+import { createHttpAction } from "../../redux/actions/commonActions";
 import types from "./TasksConstants";
 
 export const fetchTasks = id =>

@@ -1,5 +1,5 @@
 import React from "react";
-import { formatNumberToPrice, formatDate } from "../../../common/utils/utils";
+import { formatNumberToPrice, formatDate } from "../../../utils/utils";
 import { Container } from "./FinancialInfo.styles";
 
 const FinancialInfo = ({ vehicle }) => {

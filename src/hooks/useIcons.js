@@ -1,7 +1,7 @@
 export const useIcons = () => {
   let images = {};
   const r = require.context(
-    "../../assets/images/icons",
+    "../assets/images/icons",
     false,
     /\.(png|jpe?g|svg)$/
   );

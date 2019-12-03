@@ -1,12 +1,12 @@
 import React, { useEffect } from "react";
 import { connect } from "react-redux";
-import VehicleDetails from "./VehicleDetails";
+import VehicleDetails from "./vehicle-details/VehicleDetails";
 import AddInformationForm from "./add-information-form/AddInformationForm";
 import Tasks from "../tasks/Tasks";
 import Row from "react-bootstrap/Row";
 import Col from "react-bootstrap/Col";
-import { fetchVehicle, updateVehicle } from "./VehicleActions";
-import { selectVehicle } from "./VehicleSelectors";
+import { fetchVehicle, updateVehicle } from "./redux/VehicleActions";
+import { selectVehicle } from "./redux/VehicleSelectors";
 import { VehicleContainer } from "./Vehicle.styles";
 
 const Vehicle = props => {

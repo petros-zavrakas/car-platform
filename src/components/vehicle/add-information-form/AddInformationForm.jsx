@@ -1,10 +1,10 @@
 import React, { useState, useEffect } from "react";
 import { connect } from "react-redux";
-import { useForm } from "../../../common/hooks/useForm";
-import Select from "../../../common/components/form/Select";
+import { useForm } from "../../../hooks/useForm";
+import Select from "../../../components/form/Select";
 import Button from "react-bootstrap/Button";
-import { fetchMake, fetchModel, fetchTrim } from "../VehicleActions";
-import { selectVehicleInformation } from "../VehicleSelectors";
+import { fetchMake, fetchModel, fetchTrim } from "../redux/VehicleActions";
+import { selectVehicleInformation } from "../redux/VehicleSelectors";
 import { AddInfoForm } from "./AddInformationForm.styles";
 
 const AddInformationForm = props => {
@@ -35,7 +35,7 @@ const AddInformationForm = props => {
   }, [vehicalInformation]);
 
   const onChange = event => {
-    handleChange(event)
+    handleChange(event);
 
     const input = event.currentTarget;
     if (input.id === "make") onFetchModel(input.value);

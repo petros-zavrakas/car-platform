@@ -1,5 +1,5 @@
 import styled from "styled-components";
-import { Breakpoints } from "../../../assets/css/breakpoints";
+import { Breakpoints } from "../../assets/css/breakpoints";
 
 export const Wrap = styled.div`
   margin: 0 auto;

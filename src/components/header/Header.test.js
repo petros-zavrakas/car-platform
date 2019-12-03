@@ -3,7 +3,7 @@ import { shallow } from "enzyme";
 import {
   findByAttribute,
   componentRenders
-} from "../../common/utils/testUtils";
+} from "../../utils/testUtils";
 import Header from "./Header";
 
 describe("Wrapper Component", () => {
