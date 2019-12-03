@@ -1,7 +1,7 @@
 import { applyMiddleware, createStore } from "redux";
 import { composeWithDevTools } from "redux-devtools-extension/developmentOnly";
-import { httpMiddleware } from "../common/redux/middlewares/commonMiddlewares";
-import rootReducer from "../reducers/rootReducer";
+import { httpMiddleware } from "./middlewares/commonMiddlewares";
+import rootReducer from "./rootReducer";
 
 export const configureStore = preloadedState => {
   const middlewares = [httpMiddleware];

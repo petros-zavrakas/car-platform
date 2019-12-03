@@ -1,5 +1,5 @@
 import types from "./VehicleConstants";
-import { createHttpAction } from "../../common/redux/actions/commonActions";
+import { createHttpAction } from "../../../redux/actions/commonActions";
 
 const allCarFields = `
   id

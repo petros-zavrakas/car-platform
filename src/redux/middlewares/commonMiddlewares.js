@@ -1,5 +1,5 @@
 import { HTTP_ACTION } from "../constants/commonConstants";
-import httpService from "../../../services/httpService";
+import httpService from "../../services/httpService";
 
 const httpMiddleware = store => next => async action => {
   if (action[HTTP_ACTION]) {

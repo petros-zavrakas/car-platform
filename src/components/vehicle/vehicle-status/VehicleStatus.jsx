@@ -1,5 +1,5 @@
 import React from "react";
-import Select from "../../../common/components/form/Select";
+import Select from "../../../components/form/Select";
 import { StatusForm } from "./VehicleStatus.styles";
 
 const VehicleStatus = ({ vehicle, onChangeStatus }) => {

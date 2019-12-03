@@ -6,7 +6,7 @@ import { TasksContainer } from "./Tasks.styles";
 import TasksList from "./task-list/TasksList";
 import TasksForm from "./tasks-form/TasksForm";
 import Button from "react-bootstrap/Button";
-import { useToggleView } from "../../common/hooks/useToggleView";
+import { useToggleView } from "../../hooks/useToggleView";
 
 const Tasks = props => {
   const { vehicleId, tasks, onFetchTasks, onUpdateTask, onCreateTask } = props;

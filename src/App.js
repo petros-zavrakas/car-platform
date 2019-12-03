@@ -5,15 +5,15 @@ import { ToastContainer } from "react-toastify";
 import VehiclesList from "./components/vehicles-list/VehiclesList";
 import Vehicle from "./components/vehicle/Vehicle";
 import NotFound from "./components/not-found/NotFound";
-import Wrapper from "./common/components/wrapper/Wrapper";
+import Wrapper from "./components/wrapper/Wrapper";
 import Header from "./components/header/Header";
-import IsFetching from "./common/components/isfetching/IsFetching";
-import AlertBox from "./common/components/alert-box/AlertBox";
+import IsFetching from "./components/isfetching/IsFetching";
+import AlertBox from "./components/alert-box/AlertBox";
 import {
   selectIsFetching,
   selectErrorMessage
-} from "./common/redux/selectors/commonSelectors";
-import { hideErrorMessage } from "./common/redux/actions/commonActions";
+} from "./redux/selectors/commonSelectors";
+import { hideErrorMessage } from "./redux/actions/commonActions";
 import { GlobalStyles, Main } from "./App.styles";
 import "react-toastify/dist/ReactToastify.min.css";
 

@@ -2,7 +2,7 @@ import React from "react";
 import Form from "react-bootstrap/Form";
 import Row from "react-bootstrap/Row";
 import Col from "react-bootstrap/Col";
-import { useIcons } from "../../../common/hooks/useIcons";
+import { useIcons } from "../../../hooks/useIcons";
 import { TaskContainer, Icon } from "./Task.styles";
 
 const Task = ({ task, onChange }) => {
