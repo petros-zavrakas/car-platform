@@ -1,4 +1,4 @@
-import React, { useState, useEffect } from "react";
+import React, { useEffect } from "react";
 import { connect } from "react-redux";
 import { useForm } from "../../../common/hooks/useForm";
 import Select from "../../../common/components/form/Select";
@@ -16,26 +16,15 @@ const AddInformationForm = props => {
     onFetchTrim
   } = props;
 
-  const [fields, setFields, handleChange] = useForm({});
-  const [selectOptions, setSelectOptions] = useState({
-    make: [],
-    model: [],
-    trim: [],
-    engineType: ["VEE", "INLINE", "BOXER", "ROTARY"]
-  });
+  const [handleChange, fields, setFields] = useForm({});
+  const engineTypeOptions = ["VEE", "INLINE", "BOXER", "ROTARY"];
 
   useEffect(() => {
     onComponentMount();
-  }, []);
-
-  useEffect(() => {
-    if (Object.entries(vehicalInformation).length) {
-      setSelectOptions({ ...selectOptions, ...vehicalInformation });
-    }
-  }, [vehicalInformation]);
+  }, [onComponentMount]);
 
   const onChange = event => {
-    handleChange(event)
+    handleChange(event);
 
     const input = event.currentTarget;
     if (input.id === "make") onFetchModel(input.value);
@@ -54,14 +43,14 @@ const AddInformationForm = props => {
       <Select
         name="make"
         label="Make"
-        optionsList={selectOptions.make}
+        optionsList={vehicalInformation.make || []}
         onChange={onChange}
         value={fields.make || ""}
       />
       <Select
         name="model"
         label="Model"
-        optionsList={selectOptions.model}
+        optionsList={vehicalInformation.model || []}
         onChange={onChange}
         disabled={fields.make ? "" : "disabled"}
         value={fields.model || ""}
@@ -69,7 +58,7 @@ const AddInformationForm = props => {
       <Select
         name="trim"
         label="Trim"
-        optionsList={selectOptions.trim}
+        optionsList={vehicalInformation.trim || []}
         onChange={onChange}
         disabled={fields.make && fields.model ? "" : "disabled"}
         value={fields.trim || ""}
@@ -77,7 +66,7 @@ const AddInformationForm = props => {
       <Select
         name="engineType"
         label="Engine Type"
-        optionsList={selectOptions.engineType}
+        optionsList={engineTypeOptions}
         onChange={onChange}
         value={fields.engineType || ""}
       />
