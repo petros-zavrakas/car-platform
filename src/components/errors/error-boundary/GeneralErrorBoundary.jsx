@@ -1,4 +1,5 @@
 import React, { Component } from "react";
+import monitoring from "../../../services/monitoringService";
 import AlertBox from "../../alert-box/AlertBox.test";
 
 class GeneralErrorBoundary extends Component {
@@ -12,6 +13,8 @@ class GeneralErrorBoundary extends Component {
       error: error,
       errorInfo: errorInfo
     });
+
+    monitoring.addError(error, errorInfo);
   }
 
   render() {
