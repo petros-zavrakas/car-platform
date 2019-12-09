@@ -18,6 +18,7 @@ import {
 import { hideErrors } from "./redux/actions/commonActions";
 import { GlobalStyles, Main } from "./App.styles";
 import "react-toastify/dist/ReactToastify.min.css";
+import GeneralErrorBoundary from "./components/errors/error-boundary/GeneralErrorBoundary";
 
 const App = ({ isFetching, errors, onHideErrors }) => {
   const handleHideError = () => {
@@ -31,23 +32,25 @@ const App = ({ isFetching, errors, onHideErrors }) => {
 
       {isFetching && <IsFetching />}
 
-      <Header />
-      <Main>
-        <Wrapper>
-          {errors.length > 0 && (
-            <AlertBox variant="danger" onClose={handleHideError} dismissible>
-              <List items={errors} Component={ErrorItem} />
-            </AlertBox>
-          )}
-          <Switch>
-            <Route path="/car/:id" component={Vehicle} />
-            <Route path="/cars" component={VehiclesList} />
-            <Route path="/not-found" component={NotFound} />
-            <Route path="/" exact component={VehiclesList} />
-            <Redirect to="/not-found" />
-          </Switch>
-        </Wrapper>
-      </Main>
+      <GeneralErrorBoundary>
+        <Header />
+        <Main>
+          <Wrapper>
+            {errors.length > 0 && (
+              <AlertBox variant="danger" onClose={handleHideError} dismissible>
+                <List items={errors} Component={ErrorItem} />
+              </AlertBox>
+            )}
+            <Switch>
+              <Route path="/car/:id" component={Vehicle} />
+              <Route path="/cars" component={VehiclesList} />
+              <Route path="/not-found" component={NotFound} />
+              <Route path="/" exact component={VehiclesList} />
+              <Redirect to="/not-found" />
+            </Switch>
+          </Wrapper>
+        </Main>
+      </GeneralErrorBoundary>
     </div>
   );
 };

@@ -1,6 +1,11 @@
 import React, { Component } from "react";
 import monitoring from "../../../services/monitoringService";
-import AlertBox from "../../alert-box/AlertBox.test";
+import {
+  ErrorContainer,
+  Error,
+  Header,
+  Message
+} from "./GeneralErrorBoundary.styles";
 
 class GeneralErrorBoundary extends Component {
   constructor(props) {
@@ -9,12 +14,9 @@ class GeneralErrorBoundary extends Component {
   }
 
   componentDidCatch(error, errorInfo) {
-    this.setState({
-      error: error,
-      errorInfo: errorInfo
-    });
+    this.setState({ error, errorInfo });
 
-    monitoring.addError(error, errorInfo);
+    monitoring.logError(error, errorInfo);
   }
 
   render() {
@@ -22,12 +24,12 @@ class GeneralErrorBoundary extends Component {
 
     if (errorInfo) {
       return (
-        <AlertBox variant="danger">
-          <p>
-            <h4>Something went wrong! </h4>
-            <span>{error && error.toString()}</span>
-          </p>
-        </AlertBox>
+        <ErrorContainer>
+          <Error>
+            <Header>Something went wrong!</Header>
+            <Message>{error && error.toString()}</Message>
+          </Error>
+        </ErrorContainer>
       );
     }
 

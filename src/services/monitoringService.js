@@ -1,4 +1,4 @@
-const addError = (error, errorInfo) =>
-  console.error(error, errorInfo.componentStack);
+const logError = (error, errorInfo) =>
+  console.error("Error occured ", errorInfo.componentStack);
 
-export default { addError };
+export default { logError };
