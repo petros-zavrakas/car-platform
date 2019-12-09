@@ -42,7 +42,7 @@ export const updateVehicle = car => {
 
   const query = `
     mutation UpdateCar($car: CarInput!) {
-      updateCar(carr: $car){
+      updateCar(car: $car){
         ${allCarFields}
       }
     }
