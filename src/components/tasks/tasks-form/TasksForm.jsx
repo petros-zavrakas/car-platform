@@ -9,7 +9,7 @@ import { AddTaskForm } from "./TasksForm.styles";
 const TasksForm = props => {
   const taskTypeOptions = ["ADD_DOCUMENT", "WASH_CAR", "ADD_PAYMENT_DETAILS"];
 
-  const [fields, setFields, handleChange] = useForm({
+  const [handleChange, fields] = useForm({
     taskType: "",
     comment: ""
   });

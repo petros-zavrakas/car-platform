@@ -18,7 +18,7 @@ const Tasks = props => {
 
   useEffect(() => {
     onFetchTasks(vehicleId);
-  }, []);
+  }, [onFetchTasks, vehicleId]);
 
   const handleUpdateTask = ({ currentTarget: input }) => {
     onUpdateTask(input.id, input.checked);

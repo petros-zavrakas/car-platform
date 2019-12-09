@@ -8,5 +8,5 @@ export const useForm = formFields => {
     setFields({ ...fields, ...updatedField });
   };
 
-  return [fields, fields => setFields(fields), handleChange];
+  return [handleChange, fields, fields => setFields(fields)];
 };

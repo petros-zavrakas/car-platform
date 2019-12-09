@@ -11,10 +11,11 @@ import { VehicleContainer } from "./Vehicle.styles";
 
 const Vehicle = props => {
   const { match, vehicle, onUpdateVehicle, onComponentMount } = props;
+  const vehicleId = match.params.id;
 
   useEffect(() => {
-    onComponentMount(match.params.id);
-  }, []);
+    onComponentMount(vehicleId);
+  }, [onComponentMount, vehicleId]);
 
   const handleUpdateVehicle = ({ currentTarget: input }) => {
     if (input.value === "") return false;
