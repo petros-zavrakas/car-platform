@@ -21,6 +21,7 @@ describe("When there is no errors", () => {
 
 describe("When error occures", () => {
   const error = "we got an error";
+  const errorInfo = { componentStack: "testing" };
   let wrapper;
 
   beforeEach(() => {
@@ -29,7 +30,7 @@ describe("When error occures", () => {
         <p>error</p>
       </GeneralErrorBoundary>
     );
-    wrapper.instance().componentDidCatch(error);
+    wrapper.instance().componentDidCatch(error, errorInfo);
     wrapper.update();
   });
 
@@ -40,6 +41,6 @@ describe("When error occures", () => {
 
   it("should update the state", () => {
     const stateError = wrapper.instance().state.error;
-    expect(stateError).toBeEqual(error);
+    expect(stateError).toEqual(error);
   });
 });

@@ -8,18 +8,22 @@ import App from "./App";
 describe("App Component", () => {
   const mockStore = configureStore();
   const mockOnHideError = jest.fn();
-  const error = "Test error";
+  const errors = [{ type: "TEST_ACTION", message: "Test message" }];
 
   let store, wrapper, select;
   beforeEach(() => {
-    store = mockStore({});
+    store = mockStore({
+      errors: errors,
+      isFetching: false,
+      onHideError: mockOnHideError
+    });
     wrapper = mount(
       <BrowserRouter>
-        <App 
+        <App
           store={store}
           isFetching={false}
-          errorMessage={error} 
-          onHideError={mockOnHideError} 
+          errors={errors}
+          onHideError={mockOnHideError}
         />
       </BrowserRouter>
     );
@@ -35,6 +39,6 @@ describe("App Component", () => {
     const props = wrapper.find(App).props();
 
     expect(props.isFetching).toBe(false);
-    expect(props.errorMessage).toEqual(error);
-  })
+    expect(props.errors).toEqual(errors);
+  });
 });
