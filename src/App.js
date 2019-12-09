@@ -7,19 +7,21 @@ import Vehicle from "./components/vehicle/Vehicle";
 import NotFound from "./components/not-found/NotFound";
 import Wrapper from "./components/wrapper/Wrapper";
 import Header from "./components/header/Header";
+import List from "./components/list/List";
 import IsFetching from "./components/isfetching/IsFetching";
 import AlertBox from "./components/alert-box/AlertBox";
+import ErrorItem from "./components/errors/error-item/ErrorItem";
 import {
   selectIsFetching,
-  selectErrorMessage
+  selectErrors
 } from "./redux/selectors/commonSelectors";
-import { hideErrorMessage } from "./redux/actions/commonActions";
+import { hideErrors } from "./redux/actions/commonActions";
 import { GlobalStyles, Main } from "./App.styles";
 import "react-toastify/dist/ReactToastify.min.css";
 
-const App = ({ isFetching, errorMessage, onHideError }) => {
+const App = ({ isFetching, errors, onHideErrors }) => {
   const handleHideError = () => {
-    onHideError();
+    onHideErrors();
   };
 
   return (
@@ -32,9 +34,9 @@ const App = ({ isFetching, errorMessage, onHideError }) => {
       <Header />
       <Main>
         <Wrapper>
-          {errorMessage && (
+          {errors.length > 0 && (
             <AlertBox variant="danger" onClose={handleHideError} dismissible>
-              {errorMessage}
+              <List items={errors} Component={ErrorItem} />
             </AlertBox>
           )}
           <Switch>
@@ -52,13 +54,13 @@ const App = ({ isFetching, errorMessage, onHideError }) => {
 
 const mapStateToProps = state => ({
   isFetching: selectIsFetching(state),
-  errorMessage: selectErrorMessage(state)
+  errors: selectErrors(state)
 });
 
 const mapDispatchToProps = dispatch => {
   return {
-    onHideError: () => {
-      dispatch(hideErrorMessage());
+    onHideErrors: () => {
+      dispatch(hideErrors());
     }
   };
 };
