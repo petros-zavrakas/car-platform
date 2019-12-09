@@ -1,8 +1,8 @@
 import React, { useState } from "react";
-import { useForm } from "../../../common/hooks/useForm";
-import Input from "../../../common/components/form/Input";
-import Select from "../../../common/components/form/Select";
-import AlertBox from "../../../common/components/alert-box/AlertBox";
+import { useForm } from "../../../hooks/useForm";
+import Input from "../../../components/form/Input";
+import Select from "../../../components/form/Select";
+import AlertBox from "../../../components/alert-box/AlertBox";
 import Button from "react-bootstrap/Button";
 import { AddTaskForm } from "./TasksForm.styles";
 

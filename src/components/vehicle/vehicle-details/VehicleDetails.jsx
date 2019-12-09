@@ -1,14 +1,14 @@
 import React from "react";
 import Row from "react-bootstrap/Row";
 import Col from "react-bootstrap/Col";
-import VehicleStatus from "./vehicle-status/VehicleStatus";
-import VehicleInformation from "./vehicle-info/VehicleInformation";
-import FinancialInfo from "./financial-info/FinancialInfo";
-import ResponsiveImage from "../../common/components/responive-image/ResponsiveImage";
+import VehicleStatus from "../vehicle-status/VehicleStatus";
+import VehicleInformation from "../vehicle-info/VehicleInformation";
+import FinancialInfo from "../financial-info/FinancialInfo";
+import ResponsiveImage from "../../../components/responive-image/ResponsiveImage";
 import { VehicleContainer, Header } from "./VehicleDetails.styles";
-import carImg from "../../assets/images/car.jpg";
-import carImg2x from "../../assets/images/car@2x.jpg";
-import carImg3x from "../../assets/images/car@3x.jpg";
+import carImg from "../../../assets/images/car.jpg";
+import carImg2x from "../../../assets/images/car@2x.jpg";
+import carImg3x from "../../../assets/images/car@3x.jpg";
 
 const VehicleDetails = ({ vehicle, onChangeStatus }) => {
   return (

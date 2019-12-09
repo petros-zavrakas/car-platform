@@ -1,5 +1,5 @@
 import styled from "styled-components";
-import { Box } from "../../assets/css/mixins";
+import { Box } from "../../../assets/css/mixins";
 
 export const VehicleContainer = styled.div`
   ${Box}
