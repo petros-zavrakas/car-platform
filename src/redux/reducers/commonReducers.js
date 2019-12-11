@@ -1,19 +1,15 @@
 import { HIDE_ERRORS } from "../constants/commonConstants";
 
 const isFetching = (state = false, action) => {
-  if (action.type.includes("_REQUESTED")) return true;
-  if (action.type.includes("_FAILED") || action.type.includes("_SUCCESS"))
-    return false;
+  if (action.type.includes("_REQUESTED")) state = true;
 
   return state;
 };
 
 const errorsReducer = (state = [], action) => {
   if (action.type.includes("_FAILED")) {
-    const errorExists = state.filter(
-      error => error.type === action.originalType
-    );
-    if (errorExists.length > 0) return state;
+    const isError = !!state.find(error => error.type === action.originalType);
+    if (isError) return state;
 
     return [
       ...state,

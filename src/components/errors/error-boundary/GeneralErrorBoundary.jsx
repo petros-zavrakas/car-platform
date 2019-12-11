@@ -8,9 +8,10 @@ import {
 } from "./GeneralErrorBoundary.styles";
 
 class GeneralErrorBoundary extends Component {
-  constructor(props) {
-    super(props);
-    this.state = { error: null, errorInfo: null };
+  state = { hasError: false, error: null, errorInfo: null };
+
+  static getDerivedStateFromError(error) {
+    return { hasError: true };
   }
 
   componentDidCatch(error, errorInfo) {
@@ -20,9 +21,9 @@ class GeneralErrorBoundary extends Component {
   }
 
   render() {
-    const { errorInfo, error } = this.state;
+    const { hasError, error } = this.state;
 
-    if (errorInfo) {
+    if (hasError) {
       return (
         <ErrorContainer>
           <Error>

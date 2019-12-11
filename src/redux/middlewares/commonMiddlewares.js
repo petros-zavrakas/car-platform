@@ -39,8 +39,3 @@ const httpMiddleware = store => next => async action => {
 };
 
 export { httpMiddleware };
-
-// const getNextAction = (args, originalAction) => {
-//   if (originalAction.type.includes('')){
-//   }
-// };

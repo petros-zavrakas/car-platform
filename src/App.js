@@ -27,12 +27,12 @@ const App = ({ isFetching, errors, onHideErrors }) => {
 
   return (
     <div data-test="AppComponent">
-      <GlobalStyles />
-      <ToastContainer />
-
-      {isFetching && <IsFetching />}
-
       <GeneralErrorBoundary>
+        <GlobalStyles />
+        <ToastContainer />
+
+        {isFetching && <IsFetching />}
+
         <Header />
         <Main>
           <Wrapper>

@@ -54,7 +54,8 @@ export const updateVehicle = car => {
       query,
       variables: { car }
     },
-    errorMessage: `Unfortunatelly we could't update the information of the vehicle.`
+    errorMessage:
+      "Unfortunatelly we could't update the information of the vehicle."
   });
 };
 
