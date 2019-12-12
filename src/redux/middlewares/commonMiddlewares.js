@@ -28,7 +28,9 @@ const httpMiddleware = store => next => async action => {
     } catch (error) {
       next({
         type: originalAction.type + "_FAILED",
-        message: error.message
+        originalType: originalAction.type,
+        errorMessage: originalAction.errorMessage,
+        error: error
       });
     }
   } else {
@@ -37,8 +39,3 @@ const httpMiddleware = store => next => async action => {
 };
 
 export { httpMiddleware };
-
-// const getNextAction = (args, originalAction) => {
-//   if (originalAction.type.includes('')){
-//   }
-// };

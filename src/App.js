@@ -7,58 +7,63 @@ import Vehicle from "./components/vehicle/Vehicle";
 import NotFound from "./components/not-found/NotFound";
 import Wrapper from "./components/wrapper/Wrapper";
 import Header from "./components/header/Header";
+import List from "./components/list/List";
 import IsFetching from "./components/isfetching/IsFetching";
 import AlertBox from "./components/alert-box/AlertBox";
+import ErrorItem from "./components/errors/error-item/ErrorItem";
 import {
   selectIsFetching,
-  selectErrorMessage
+  selectErrors
 } from "./redux/selectors/commonSelectors";
-import { hideErrorMessage } from "./redux/actions/commonActions";
+import { hideErrors } from "./redux/actions/commonActions";
 import { GlobalStyles, Main } from "./App.styles";
 import "react-toastify/dist/ReactToastify.min.css";
+import GeneralErrorBoundary from "./components/errors/error-boundary/GeneralErrorBoundary";
 
-const App = ({ isFetching, errorMessage, onHideError }) => {
+const App = ({ isFetching, errors, onHideErrors }) => {
   const handleHideError = () => {
-    onHideError();
+    onHideErrors();
   };
 
   return (
     <div data-test="AppComponent">
-      <GlobalStyles />
-      <ToastContainer />
+      <GeneralErrorBoundary>
+        <GlobalStyles />
+        <ToastContainer />
 
-      {isFetching && <IsFetching />}
+        {isFetching && <IsFetching />}
 
-      <Header />
-      <Main>
-        <Wrapper>
-          {errorMessage && (
-            <AlertBox variant="danger" onClose={handleHideError} dismissible>
-              {errorMessage}
-            </AlertBox>
-          )}
-          <Switch>
-            <Route path="/car/:id" component={Vehicle} />
-            <Route path="/cars" component={VehiclesList} />
-            <Route path="/not-found" component={NotFound} />
-            <Route path="/" exact component={VehiclesList} />
-            <Redirect to="/not-found" />
-          </Switch>
-        </Wrapper>
-      </Main>
+        <Header />
+        <Main>
+          <Wrapper>
+            {errors.length > 0 && (
+              <AlertBox variant="danger" onClose={handleHideError} dismissible>
+                <List items={errors} Component={ErrorItem} />
+              </AlertBox>
+            )}
+            <Switch>
+              <Route path="/car/:id" component={Vehicle} />
+              <Route path="/cars" component={VehiclesList} />
+              <Route path="/not-found" component={NotFound} />
+              <Route path="/" exact component={VehiclesList} />
+              <Redirect to="/not-found" />
+            </Switch>
+          </Wrapper>
+        </Main>
+      </GeneralErrorBoundary>
     </div>
   );
 };
 
 const mapStateToProps = state => ({
   isFetching: selectIsFetching(state),
-  errorMessage: selectErrorMessage(state)
+  errors: selectErrors(state)
 });
 
 const mapDispatchToProps = dispatch => {
   return {
-    onHideError: () => {
-      dispatch(hideErrorMessage());
+    onHideErrors: () => {
+      dispatch(hideErrors());
     }
   };
 };

@@ -2,7 +2,7 @@ import React from "react";
 import Wrapper from "../../components/wrapper/Wrapper";
 import { HeaderContainer, Logo } from "./Header.styles";
 
-const Header = () => {
+const Header = props => {
   return (
     <HeaderContainer data-test="HeaderComponent">
       <Wrapper>

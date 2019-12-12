@@ -1,4 +1,4 @@
-import { HIDE_ERROR } from "../constants/commonConstants";
+import { HIDE_ERRORS } from "../constants/commonConstants";
 
 export const createHttpAction = action => {
   const createHttpActionTemplate = {
@@ -16,6 +16,6 @@ export const createHttpAction = action => {
   return { HTTP_ACTION: { ...createHttpActionTemplate, ...action } };
 };
 
-export const hideErrorMessage = () => ({
-  type: HIDE_ERROR
+export const hideErrors = () => ({
+  type: HIDE_ERRORS
 });

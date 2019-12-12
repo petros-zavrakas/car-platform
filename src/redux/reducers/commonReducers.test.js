@@ -1,30 +1,34 @@
-import { isFetching, errorMessage } from "./commonReducers";
+import { isFetching, errorsReducer } from "./commonReducers";
 
 describe("isFetching reducer", () => {
   it("Should return the default state", () => {
-    const defaultState = isFetching(undefined, { type: 'TEST_ACTION'});
+    const defaultState = isFetching(undefined, { type: "TEST_ACTION" });
     expect(defaultState).toBe(false);
   });
 
   it("Should return a new state", () => {
-    const newState = isFetching(true, { type: 'TEST_ACTION'});
+    const newState = isFetching(true, { type: "TEST_ACTION" });
     expect(newState).toBe(true);
   });
 });
 
-describe("errorMessage reducer", () => {
+describe("Errors reducer", () => {
   it("Should return the default state", () => {
-    const defaultState = errorMessage(null, { type: 'TEST_ACTION'});
+    const defaultState = errorsReducer(null, { type: "TEST_ACTION" });
     expect(defaultState).toBe(null);
   });
 
   it("Should return a new state", () => {
-    const error = "testing error";
+    const type = "TEST_ACTION";
+    const msg = "Test message";
+    const errors = [{ type: type, message: msg }];
     const action = {
-      type: "TEST_FAILED",
-      message: error
+      type: `${type}_FAILED`,
+      originalType: type,
+      errorMessage: msg
     };
-    const newState = errorMessage(undefined, action);
-    expect(newState).toEqual(error);
+
+    const newState = errorsReducer([], action);
+    expect(newState).toEqual(errors);
   });
 });

@@ -3,7 +3,7 @@ import * as selectors from "./commonSelectors";
 describe("Common Selectors", () => {
   it("Should return isFetching", () => {
     const state = {
-      isFetching: false 
+      isFetching: false
     };
 
     const isFetching = selectors.selectIsFetching(state);
@@ -12,10 +12,10 @@ describe("Common Selectors", () => {
 
   it("Should return an error message", () => {
     const state = {
-      errorMessage: "This is an error message" 
+      errors: [{ type: "FETCH_DATA", message: "This is an error message" }]
     };
 
-    const errorMessage = selectors.selectErrorMessage(state);
-    expect(errorMessage).toEqual(state.errorMessage);
+    const errors = selectors.selectErrors(state);
+    expect(errors).toEqual(state.errors);
   });
 });

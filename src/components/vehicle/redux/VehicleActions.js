@@ -30,7 +30,9 @@ export const fetchVehicle = id =>
       car(id:"${id}"){
         ${allCarFields}
       }
-    }`
+    }`,
+    errorMessage:
+      "Unfortunatelly we could't retrieve information for the vehicle."
   });
 
 export const updateVehicle = car => {
@@ -51,7 +53,9 @@ export const updateVehicle = car => {
     body: {
       query,
       variables: { car }
-    }
+    },
+    errorMessage:
+      "Unfortunatelly we could't update the information of the vehicle."
   });
 };
 
@@ -60,7 +64,8 @@ const fetchData = (field, args = "") => {
   return createHttpAction({
     type: types.FETCH_DATA,
     method: "GET",
-    query: `{${query}}`
+    query: `{${query}}`,
+    errorMessage: `Unfortunatelly we could't retrieve vehicle's ${field} information.`
   });
 };
 
