@@ -15,8 +15,6 @@ class GeneralErrorBoundary extends Component {
   }
 
   componentDidCatch(error, errorInfo) {
-    this.setState({ error, errorInfo });
-
     monitoring.logError(error, errorInfo);
   }
 
