@@ -1,8 +1,14 @@
 import styled from "styled-components";
 
 export const HeaderContainer = styled.header`
-  background-color: ${props => props.theme.main}
+  background-color: ${props => props.theme.main};
   padding: 15px 0;
+  transition: all 0.3s ease-in-out;
+
+  .wrapper {
+    display: flex;
+    justify-content: space-between;
+  }
 `;
 
 export const Logo = styled.h2`

@@ -6,12 +6,14 @@ export const Box = theme => `
   border-radius: 3px;
   box-shadow: 0 0 6px -5px #565656;
   padding: 30px;
+  transition: all .3s ease-in-out;
 
   .header{ margin-bottom: 20px; }
 `;
 
 export const Form = theme => `
   input, select, textarea { outline: none; }
+  transition: all .3s ease-in-out;
   
   select, input { 
     color: ${theme.fonts}
@@ -40,11 +42,13 @@ export const Form = theme => `
     margin: 0 0 -10px 4px;
     padding: 0 5px;
     position: relative;
+    transition: all .3s ease-in-out;
     z-index: 5;
   }
 
   .form-control{
     background-color: transparent!important;
+    transition: all .3s ease-in-out;
 
     &::-webkit-input-placeholder {
       color: ${theme.fonts};

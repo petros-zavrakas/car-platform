@@ -9,6 +9,7 @@ export const GlobalStyles = createGlobalStyle`
     font-family: "Poppins", Sans-serif;
     font-size: .875rem;
     font-weight: 300;
+    transition: all .3s ease-in-out;
 
     a, a:hover{ text-decoration: none!important; }
 

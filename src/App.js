@@ -1,4 +1,4 @@
-import React from "react";
+import React, { useState } from "react";
 import { connect } from "react-redux";
 import { Switch, Route, Redirect } from "react-router-dom";
 import { ToastContainer } from "react-toastify";
@@ -27,8 +27,11 @@ const App = ({ isFetching, errors, onHideErrors }) => {
     onHideErrors();
   };
 
+  const [darkTheme, setDarkTheme] = useState(false);
+  const handleSwitchTheme = () => setDarkTheme(!darkTheme);
+
   return (
-    <ThemeProvider theme={themes.dark}>
+    <ThemeProvider theme={darkTheme ? themes.dark : themes.light}>
       <div data-test="AppComponent">
         <GeneralErrorBoundary>
           <GlobalStyles />
@@ -36,7 +39,7 @@ const App = ({ isFetching, errors, onHideErrors }) => {
 
           {isFetching && <IsFetching />}
 
-          <Header />
+          <Header onSwitchTheme={handleSwitchTheme} />
           <Main>
             <Wrapper>
               {errors.length > 0 && (

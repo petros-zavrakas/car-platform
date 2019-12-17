@@ -1,5 +1,6 @@
 export default {
   light: {
+    name: "light",
     main: "#418EE8",
     mainHover: "#5475FF",
     background: "#f7f7f7",
@@ -10,6 +11,7 @@ export default {
     forms: { label: "#9e9e9e" }
   },
   dark: {
+    name: "dark",
     main: "#995FFF",
     mainHover: "#8252FF",
     background: "#292929",
