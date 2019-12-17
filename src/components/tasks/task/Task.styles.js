@@ -1,5 +1,4 @@
 import styled from "styled-components";
-import colors from "../../../assets/css/colors";
 
 export const TaskContainer = styled.div`
   .row {
@@ -13,7 +12,7 @@ export const TaskContainer = styled.div`
 `;
 
 export const Icon = styled.div`
-  background-color: ${colors.main}
+  background-color: ${props => props.theme.main}
   border-radius: 100%;
   height: 30px;
   display: inline-block;

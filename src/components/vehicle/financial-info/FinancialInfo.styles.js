@@ -5,7 +5,7 @@ export const Container = styled.div`
   line-height: 1.3;
 
   small {
-    color: #9e9e9e;
+    color: ${props => props.theme.fontsLight};
     font-size: 0.6875rem;
   }
 `;

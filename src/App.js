@@ -19,6 +19,8 @@ import { hideErrors } from "./redux/actions/commonActions";
 import { GlobalStyles, Main } from "./App.styles";
 import "react-toastify/dist/ReactToastify.min.css";
 import GeneralErrorBoundary from "./components/errors/error-boundary/GeneralErrorBoundary";
+import { ThemeProvider } from "styled-components";
+import themes from "./assets/css/themes";
 
 const App = ({ isFetching, errors, onHideErrors }) => {
   const handleHideError = () => {
@@ -26,32 +28,38 @@ const App = ({ isFetching, errors, onHideErrors }) => {
   };
 
   return (
-    <div data-test="AppComponent">
-      <GeneralErrorBoundary>
-        <GlobalStyles />
-        <ToastContainer />
+    <ThemeProvider theme={themes.dark}>
+      <div data-test="AppComponent">
+        <GeneralErrorBoundary>
+          <GlobalStyles />
+          <ToastContainer />
 
-        {isFetching && <IsFetching />}
+          {isFetching && <IsFetching />}
 
-        <Header />
-        <Main>
-          <Wrapper>
-            {errors.length > 0 && (
-              <AlertBox variant="danger" onClose={handleHideError} dismissible>
-                <List items={errors} Component={ErrorItem} />
-              </AlertBox>
-            )}
-            <Switch>
-              <Route path="/car/:id" component={Vehicle} />
-              <Route path="/cars" component={VehiclesList} />
-              <Route path="/not-found" component={NotFound} />
-              <Route path="/" exact component={VehiclesList} />
-              <Redirect to="/not-found" />
-            </Switch>
-          </Wrapper>
-        </Main>
-      </GeneralErrorBoundary>
-    </div>
+          <Header />
+          <Main>
+            <Wrapper>
+              {errors.length > 0 && (
+                <AlertBox
+                  variant="danger"
+                  onClose={handleHideError}
+                  dismissible
+                >
+                  <List items={errors} Component={ErrorItem} />
+                </AlertBox>
+              )}
+              <Switch>
+                <Route path="/car/:id" component={Vehicle} />
+                <Route path="/cars" component={VehiclesList} />
+                <Route path="/not-found" component={NotFound} />
+                <Route path="/" exact component={VehiclesList} />
+                <Redirect to="/not-found" />
+              </Switch>
+            </Wrapper>
+          </Main>
+        </GeneralErrorBoundary>
+      </div>
+    </ThemeProvider>
   );
 };
 

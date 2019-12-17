@@ -1,11 +1,11 @@
 import styled, { createGlobalStyle } from "styled-components";
 import { Breakpoints } from "./assets/css/breakpoints";
-import colors from "./assets/css/colors";
 
 // Global Styles
 export const GlobalStyles = createGlobalStyle`
   html body{
-    background-color: #f7f7f7;
+    color: ${props => props.theme.fonts};
+    background-color: ${props => props.theme.background};
     font-family: "Poppins", Sans-serif;
     font-size: .875rem;
     font-weight: 300;
@@ -31,12 +31,12 @@ export const GlobalStyles = createGlobalStyle`
   .btn{
     &:hover{ box-shadow: 0 0 8px -2px #000; }
     &.btn-primary{
-      background-color: ${colors.secondary};
-      border-color: ${colors.secondary};
+      background-color: ${props => props.theme.main}
+      border-color: ${props => props.theme.main}
   
       &:hover{
-        background-color: ${colors.secondary};
-        border-color: ${colors.secondary};
+        background-color: ${props => props.theme.main}
+        border-color: ${props => props.theme.main}
       }
   
       a{ color: #fff; }
@@ -49,6 +49,11 @@ export const GlobalStyles = createGlobalStyle`
       justify-content: center;
       width: 40px;
     }
+  }
+
+  .list-group .list-group-item{
+    background-color: ${props => props.theme.box};
+    border: 1px solid ${props => props.theme.borders};
   }
 `;
 
