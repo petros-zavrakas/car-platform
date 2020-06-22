@@ -2,6 +2,7 @@ import { HIDE_ERRORS } from "../constants/commonConstants";
 
 const isFetching = (state = false, action) => {
   if (action.type.includes("_REQUESTED")) state = true;
+  if (action.type.includes("_SUCCESS")) state = false;
 
   return state;
 };

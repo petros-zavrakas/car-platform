@@ -2,7 +2,7 @@ import styled from "styled-components";
 import { Box } from "../../assets/css/mixins";
 
 export const TasksContainer = styled.div`
-  ${Box}
+  ${props => Box(props.theme)}
   height: 100%;
   padding-bottom: 85px;
   position: relative;

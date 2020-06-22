@@ -1,9 +1,14 @@
 import styled from "styled-components";
-import colors from "../../assets/css/colors";
 
 export const HeaderContainer = styled.header`
-  background-color: ${colors.main};
+  background-color: ${props => props.theme.main};
   padding: 15px 0;
+  transition: all 0.3s ease-in-out;
+
+  .wrapper {
+    display: flex;
+    justify-content: space-between;
+  }
 `;
 
 export const Logo = styled.h2`
@@ -13,8 +18,8 @@ export const Logo = styled.h2`
   margin: 0;
   text-transform: uppercase;
 
-  span{ 
+  span {
     color: #000;
-    font-size: 1.125rem; 
+    font-size: 1.125rem;
   }
 `;
